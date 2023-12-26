@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir ~/trash 2> /dev/null
+rm -rf ~/trash/*

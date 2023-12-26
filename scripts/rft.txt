@@ -1,0 +1,16 @@
+#!/bin/bash
+mkdir ~/trash 2> /dev/null
+if [ $# -gt 2 ]; then
+    echo trop d\'arguments
+    exit 2
+fi
+src=$1
+rep=~/
+if [ $# = 2 ]; then
+    rep=$2
+fi
+if mv ~/trash/${src} $rep ; then
+    echo '~/trash/'${src} restored to $rep
+else
+    exit $?
+fi

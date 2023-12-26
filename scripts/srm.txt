@@ -1,0 +1,6 @@
+#!/bin/bash
+mkdir ~/trash 2> /dev/null
+if mv $* ~/trash ; then
+    echo ':'$* in trash 
+fi
+exit 0

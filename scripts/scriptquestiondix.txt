@@ -1,0 +1,42 @@
+#!/bin/bash
+
+exec 1> creer_user.log
+
+nom="$1"
+groupe="$2"
+
+#creation de l'utilisateur
+sudo adduser --disabled-login --gecos "$nom" $nom
+
+#placer l'utilisateur dans un groupe
+sudo adduser $nom $groupe
+
+#verification de l'installation d'emacs, si non installé, l'installe
+if [ -d "/etc/emacs" ]
+	then echo "emacs est installé"
+else sudo apt install emacs
+fi;
+
+#verification de wireshark, si non installé, l'installe
+if [ -d "/etc/wireshark" ]
+	then echo "wireshark est installé"
+else sudo apt install wireshark
+fi;
+
+#verif apache2
+if [ -d "/etc/apache2" ]
+	then echo "apache2 est installé"
+else sudo apt install apache2
+fi;
+
+#verif java
+if [ -d "/etc/java" ]
+	then echo "java est installé"
+else sudo apt install default-jdk
+fi;
+
+#verif intellij
+if [ -d "/snap/intellij-idea-community" ]
+	then echo "intellij est installé"
+else sudo snap install intellij-idea-community --classic
+fi;

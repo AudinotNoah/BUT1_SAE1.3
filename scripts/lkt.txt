@@ -1,0 +1,5 @@
+#!/bin/bash
+mkdir ~/trash 2> /dev/null
+echo trash folder :
+ls -l ~/trash
+exit 0
